@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom'
+
+import Home from './routes/home/home.component';
+import Currency from './routes/currency/currency.component';
+import Length from './routes/length/length.component';
+import Weight from './routes/weight/weight.component';
+import Volume from './routes/volume/volume.component';
+import Area from './routes/area/area.component';
+import Navigation from './routes/navigation/navigation.component';
+
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation/>}>
+        <Route index element={<Home/>} />
+        <Route path='/currency' element={<Currency/>} />
+        <Route path='/length' element={<Length/>} />
+        <Route path='/weight' element={<Weight/>} />
+        <Route path='/volume' element={<Volume/>} />
+        <Route path='/area' element={<Area/>} />
+      </Route>
+    </Routes>
   );
 }
 
